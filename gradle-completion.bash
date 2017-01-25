@@ -129,9 +129,9 @@ _gradle()
                 # Reuse Gradle Daemon if IDLE but don't start a new one.
                 local gradle_tasks_output
                 if [[ ! -z "$($gradle_cmd --status 2>/dev/null | grep IDLE)" ]]; then
-                    gradle_tasks_output="$($gradle_cmd --daemon -q tasks --all)"
+                    gradle_tasks_output="$($gradle_cmd --daemon -q tasks)"
                 else
-                    gradle_tasks_output="$($gradle_cmd --no-daemon -q tasks --all)"
+                    gradle_tasks_output="$($gradle_cmd --no-daemon -q tasks)"
                 fi
                 local outputline
                 local task_description
